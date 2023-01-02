@@ -9,9 +9,11 @@ const getComputerChoice = () => {
 
 // getComputerChoice();
 
-const play = (user) => {
+userChoice = prompt("rock, paper or scissors? ");
+
+// const cpu = getComputerChoice();
+const play = (user, cpu) => {
   user = user.toLowerCase();
-  const cpu = getComputerChoice();
   //   console.log(cpu);
   if (user == cpu) {
     return "Its a draw";
@@ -30,4 +32,32 @@ const play = (user) => {
   }
 };
 
-console.log(play("rock"));
+// play(userChoice, getComputerChoice);
+// console.log(play(userChoice));
+
+const game = (rounds) => {
+  let userScore = 0;
+  let cpuScore = 0;
+  let draws = 0;
+  play(userChoice, getComputerChoice());
+  for (let i = 0; i < rounds; i++) {
+    if (play(userChoice, getComputerChoice()) == "User wins: 1 point") {
+      userScore++;
+    } else if (play(userChoice, getComputerChoice()) == "Its a draw") {
+      draws++;
+    } else {
+      cpuScore++;
+    }
+  }
+
+  if (userScore > cpuScore) {
+    console.log(`User wins: by ${userScore - cpuScore} points`);
+  } else {
+    console.log(`Cpu wins: by ${cpuScore - userScore} points`);
+  }
+
+  console.log(`User: ${userScore}`);
+  console.log(`Cpu: ${cpuScore}`);
+};
+
+game(3);
