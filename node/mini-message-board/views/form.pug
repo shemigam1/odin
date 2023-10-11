@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(method="POST" action="/new") 
+        h1 NEW MESSAGE
+        label User:
+        input(name="user")
+        br
+        label Text:
+        input(name="text")
+        br
+        button(type="submit") submit
+
+    a(href="/") home
